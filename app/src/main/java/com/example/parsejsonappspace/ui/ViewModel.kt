@@ -8,7 +8,6 @@ import com.google.gson.GsonBuilder
 
 class MainViewModel: ViewModel() {
 
-   // val jsonLiveData:MutableLiveData<>
 
     val text= "{\n" +
             "    \"students\": [\n" +
@@ -36,21 +35,17 @@ class MainViewModel: ViewModel() {
             "}"
 
 
-    object JsonParser {
-        inline fun <reified T> parseJsonToData(jsonToParse: String): T =
-            Gson().fromJson(jsonToParse, T::class.java)
-
-    }
 
 
-        inline fun <reified T>parseJson(json: String?): T? {
-                // val modelSubListItem = Gson().fromJson(jsonObject.toString(),ModelSubListItem::class.java)
 
-                val gson= GsonBuilder().create()
-                //val jiij=Gson().fromJson(jsonObject, Array<ModelSubListItem>::class.java).toList()
-
-                return gson.fromJson(json,T::class.java)
-        }
+//        inline fun <reified T>parseJson(json: String?): T? {
+//                // val modelSubListItem = Gson().fromJson(jsonObject.toString(),ModelSubListItem::class.java)
+//
+//                val gson= GsonBuilder().create()
+//                //val jiij=Gson().fromJson(jsonObject, Array<ModelSubListItem>::class.java).toList()
+//
+//                return gson.fromJson(json,T::class.java)
+//        }
 
 
 

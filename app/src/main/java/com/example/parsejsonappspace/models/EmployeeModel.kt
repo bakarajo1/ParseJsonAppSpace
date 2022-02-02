@@ -1,4 +1,4 @@
-package com.example.parsejsonappspace
+package com.example.parsejsonappspace.models
 
 
 import com.google.gson.annotations.SerializedName
