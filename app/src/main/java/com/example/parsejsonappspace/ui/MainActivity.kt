@@ -2,6 +2,7 @@ package com.example.parsejsonappspace.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,8 @@ import com.example.parsejsonappspace.StudentAdapterclass
 import com.example.parsejsonappspace.databinding.ActivityMainBinding
 import com.example.parsejsonappspace.models.EmployeeModel
 import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
 
