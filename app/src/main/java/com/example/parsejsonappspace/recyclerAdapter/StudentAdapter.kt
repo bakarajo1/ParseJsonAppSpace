@@ -1,12 +1,13 @@
 package com.example.parsejsonappspace
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parsejsonappspace.databinding.StudentRecyclerItemBinding
 import com.example.parsejsonappspace.models.EmployeeModel
 import com.example.parsejsonappspace.models.Student
-
+const val POINTS="pts"
 class StudentAdapterclass(private val employeeModel: EmployeeModel) :
     RecyclerView.Adapter<StudentAdapterclass.ViewHolder>() {
 
@@ -14,10 +15,12 @@ class StudentAdapterclass(private val employeeModel: EmployeeModel) :
     class ViewHolder(private val binding: StudentRecyclerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun onBind(student: Student) {
             with(binding) {
-                textView.text = student.firstName
-                textView2.text = student.lastName
+                nameTextView.text = student.firstName
+                surnameTextView.text = student.lastName
+                scoreTextView.text= """${student.points?.average().toString()}$POINTS"""
             }
 
         }
