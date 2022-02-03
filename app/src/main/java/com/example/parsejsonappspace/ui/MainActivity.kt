@@ -2,11 +2,8 @@ package com.example.parsejsonappspace.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.KK
-import com.example.parsejsonappspace.JsonParser
 import com.example.parsejsonappspace.MainViewModel
 import com.example.parsejsonappspace.StudentAdapterclass
 import com.example.parsejsonappspace.databinding.ActivityMainBinding
@@ -25,22 +22,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        info= JsonParser.parseJson(viewModel.text)
-
-        val temp= KK.getJsonFromAssets(applicationContext,"kk.json")
-
-        Toast.makeText(this, temp, Toast.LENGTH_SHORT).show()
+        viewModel.parseDataFromFile(applicationContext)
         init()
     }
 
     fun init() {
-        initRecyclerAdapter()
+        setObserver()
 
     }
 
+    private fun setObserver() {
+
+        viewModel.parsedJsonModels.observe( this) { studentList ->
+            info=studentList
+            adapter = StudentAdapterclass(info)
+             initRecyclerAdapter()
+        }
+    }
+
+
     private fun initRecyclerAdapter() {
         val rvStudents = binding.studentRecycler
-        adapter = StudentAdapterclass(info)
         rvStudents.adapter = adapter
         rvStudents.layoutManager = LinearLayoutManager(this)
     }

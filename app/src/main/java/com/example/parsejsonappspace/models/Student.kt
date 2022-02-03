@@ -10,4 +10,11 @@ data class Student(
     var lastName: String?,
     @SerializedName("points")
     var points: List<Int>?
-)
+){
+    fun getAverageScore(format: String):String{
+
+        return format.format(points?.average(),"pts")
+
+
+    }
+}

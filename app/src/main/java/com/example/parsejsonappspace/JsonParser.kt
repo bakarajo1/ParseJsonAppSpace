@@ -10,7 +10,4 @@ import java.io.File
 object JsonParser {
     inline fun <reified T> parseJson(json: String): T =
         Gson().fromJson(json, T::class.java)
-
-    fun readFileDirectlyAsText(fileName: String): String
-            = File(fileName).readText(Charsets.UTF_8)
 }
