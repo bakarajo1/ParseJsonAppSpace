@@ -2,18 +2,15 @@ package com.example.parsejsonappspace.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.KK
 import com.example.parsejsonappspace.JsonParser
 import com.example.parsejsonappspace.MainViewModel
 import com.example.parsejsonappspace.StudentAdapterclass
 import com.example.parsejsonappspace.databinding.ActivityMainBinding
 import com.example.parsejsonappspace.models.EmployeeModel
-import java.io.File
-import java.io.FileInputStream
-import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         info= JsonParser.parseJson(viewModel.text)
 
+        val temp= KK.getJsonFromAssets(this,"src/androidTest/assets/kk.json")
+        Toast.makeText(this, temp, Toast.LENGTH_SHORT).show()
         init()
     }
 
@@ -39,9 +38,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerAdapter() {
-        val rvContacts = binding.studentRecycler
+        val rvStudents = binding.studentRecycler
         adapter = StudentAdapterclass(info)
-        rvContacts.adapter = adapter
-        rvContacts.layoutManager = LinearLayoutManager(this)
+        rvStudents.adapter = adapter
+        rvStudents.layoutManager = LinearLayoutManager(this)
     }
 }
