@@ -38,14 +38,12 @@ class MainViewModel: ViewModel() {
 
 
 
-//        inline fun <reified T>parseJson(json: String?): T? {
-//                // val modelSubListItem = Gson().fromJson(jsonObject.toString(),ModelSubListItem::class.java)
-//
-//                val gson= GsonBuilder().create()
-//                //val jiij=Gson().fromJson(jsonObject, Array<ModelSubListItem>::class.java).toList()
-//
-//                return gson.fromJson(json,T::class.java)
-//        }
+        fun <T>parseJson(json: String?,temp:Class <T>): T? {
+
+                val gson= GsonBuilder().create()
+
+                return gson.fromJson(json,temp)
+        }
 
 
 

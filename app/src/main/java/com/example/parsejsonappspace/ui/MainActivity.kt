@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         info= JsonParser.parseJson(viewModel.text)
 
-        val temp= KK.getJsonFromAssets(this,"src/androidTest/assets/kk.json")
+        val temp= KK.getJsonFromAssets(applicationContext,"kk.json")
+
         Toast.makeText(this, temp, Toast.LENGTH_SHORT).show()
         init()
     }

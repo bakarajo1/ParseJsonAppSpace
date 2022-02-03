@@ -1,0 +1,24 @@
+{
+  "students": [
+    {
+      "firstName": "giorgi",
+      "lastName": "beridze",
+      "points": [10, 9, 9, 10]
+    },
+    {
+      "firstName": "bakari",
+      "lastName": "zhghenti",
+      "points": [7, 8, 9, 9]
+    },
+    {
+      "firstName": "irakli",
+      "lastName": "matcharashvili",
+      "points": [7, 8, 6, 9]
+    },
+    {
+      "firstName": "giorgi",
+      "lastName": "matcharashvili",
+      "points": [6, 6, 9, 8]
+    }
+  ]
+}
